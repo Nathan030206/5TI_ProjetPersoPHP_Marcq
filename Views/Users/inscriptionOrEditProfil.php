@@ -24,6 +24,7 @@
         </div>
         <div>
             <button name="btnEnvoi" class="btn btn-primary">Envoyer</button>
+            <h4 class="text-danger">Déjà inscrit</h4>
         </div>
     </fieldset>
 </form>

@@ -17,7 +17,7 @@
         </fieldset>
         <div>
             <h4 class="text-danger">Pas encore inscrit ?</h4>
-            <a href="inscriptionOrEditProfil.php" class="btn btn-secondary">Cliquez ici !</a>
+            <a href="http://localhost:3000/inscription"class="btn btn-secondary">Cliquez ici !</a>
         </div>
     </form>
 
