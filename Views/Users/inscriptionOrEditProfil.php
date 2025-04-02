@@ -24,7 +24,8 @@
         </div>
         <div>
             <button name="btnEnvoi" class="btn btn-primary">Envoyer</button>
-            <h4 class="text-danger">Déjà inscrit</h4>
+            <h4 class="text-danger">Déjà inscrit?</h4>
+            <a href="http://localhost:3000/connexion"class="btn btn-secondary">Connect toi!</a>
         </div>
     </fieldset>
 </form>
