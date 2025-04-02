@@ -1,4 +1,4 @@
-<footer>
+<footer id="footfoot">
     <div class="flexible space-between align-item-center">
         <div>
             <img class="imageIcon" src="../Assets/Images/icon1.jpg" alt="image twitter">
