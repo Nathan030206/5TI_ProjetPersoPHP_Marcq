@@ -1,10 +1,10 @@
 <?php 
 
+require_once("Models/userModel.php");
+
 $uri = $_SERVER["REQUEST_URI"];
 var_dump($uri);
 if ($uri === "/connexion"){
-
-    
 
     if(isset($_POST['btnEnvoi'])){
 
@@ -43,6 +43,20 @@ elseif ($uri==="/updateProfil"){
 elseif ($uri ==="/deconnexion") {
     session_destroy();
     header("location:/");
+}
+
+function verifEmptyData()
+{
+    foreach ($_POST as $key => $value) {
+        if (empty(str_replace(' ', '', $value))){
+            $messageError[$key] = "Votre " . $key  . "est vide.";
+        }
+    }
+    if (isset($messageError)) {
+        return $messageError;
+    } else {
+        return false;
+    }
 }
 
 

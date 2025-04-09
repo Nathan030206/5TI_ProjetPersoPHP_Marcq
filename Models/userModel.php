@@ -4,16 +4,16 @@
 function createUser($pdo)
 {
     try {
-        $query = 'insert into utilisateurs(nomUser, prenomUser, loginUser, passWordUser, emailUser, role) values (:nomUser, :prenomUser, :loginUser, :passWordUser, :emailUser, :role)';
+        $query = 'insert into utilisateur(utilPrenom, utilNom, utilAge, utilNum, utilAdresse, utilPostal, utilMot) values (:utilPrenom, :utilNom, :utilAge, :utilNum, :utilAdresse,:utilPostal ,:utilMot)';
         $ajouteUser = $pdo->prepare($query);
         $ajouteUser->execute([
-            'nomUser' => $_POST["nom"],
-            'prenomUser' => $_POST["prenom"],
-            'loginUser' => $_POST["login"],
-            'passWordUser' => $_POST["mot_de_passe"],
-            'emailUser' => $_POST["email"],
-            'role' => 'user'
-            
+            'utilPrenom' => $_POST["prenom"],
+            'utilNom' => $_POST["nom"],
+            'utilAge' => $_POST["dateDeNaissance"],
+            'utilNum' => $_POST["numero"],
+            'utilAdresse' => $_POST["email"],
+            'utilPostal' => $_POST["codePostal"],
+            'utilMot' => $_POST["mot_de_passe"],
         ]);
     } catch (PDOException $e) {
         $message = $e->getMessage();
@@ -23,11 +23,11 @@ function createUser($pdo)
 function connectUser($pdo)
 {
     try {
-        $query = 'select * from utilisateurs where loginUser = :loginUser and passWordUser = :passWordUser';
+        $query = 'select * from utilisateur where utilAdresse = : and utilMot = :utilMot';
         $connectUser = $pdo->prepare($query);
         $connectUser->execute([
-            'loginUser' => $_POST["login"],
-            'passWordUser' => $_POST["mot_de_passe"]
+            'utilAdresse' => $_POST["email"],
+            'utilMot' => $_POST["mot_de_passe"]
         ]);
         $user = $connectUser->fetch();
         if (!$user){
@@ -43,18 +43,6 @@ function connectUser($pdo)
     }
 }
 
-function verifEmptyData()
-{
-    foreach ($_POST as $key => $value) {
-        if (empty(str_replace(' ', '', $value))){
-            $messageError[$key] = "Votre " . $key  . "est vide.";
-        }
-    }
-    if (isset($messageError)) {
-        return $messageError;
-    } else {
-        return false;
-    }
-}
+
 
 ?>

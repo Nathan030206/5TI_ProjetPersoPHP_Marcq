@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <?php require_once("Views/COmponents/navBar.php"); ?>
+        <?php require_once("Views/Components/navBar.php"); ?>
     </header>
     <main>
         <?php  require_once($template);  ?>
