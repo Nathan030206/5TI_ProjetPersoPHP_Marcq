@@ -23,7 +23,7 @@ function createUser($pdo)
 function connectUser($pdo)
 {
     try {
-        $query = 'select * from utilisateur where utilAdresse = : and utilMot = :utilMot';
+        $query = 'select * from utilisateur where utilAdresse = :utilAdresse and utilMot = :utilMot';
         $connectUser = $pdo->prepare($query);
         $connectUser->execute([
             'utilAdresse' => $_POST["email"],
