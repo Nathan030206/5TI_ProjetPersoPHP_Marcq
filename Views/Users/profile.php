@@ -1,88 +1,38 @@
-+<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/base.css">
-    <link rel="stylesheet" href="Css/animation.css">
-    <link rel="stylesheet" href="Css/flex.css">
-    <link rel="stylesheet" href="Css/form.css">
-    <title>BB</title>
-</head>
-<body>
-    <header>
-        <ul class="flexible space-evenly">
-            <!-- grand écran -->
-            <li class="menu"><a href="index.php">Home</a></li>
-            <li  class="menu"><a href="inscriptionOrEditProfil.php">Inscription</a></li>
-            <li  class="menu"><a href="connexion.php">Connexion</a></li>
-            <!-- petit écran -->
-            <li class="imageMenu"><a href="index.php"><ion-icon size="large" name="home-outline"></ion-icon></a></li>
-            <li class="imageMenu"><a href="inscriptionOrEditProfil.php"><ion-icon size="large" name="person-outline"></ion-icon></a></li>
-            <li class="imageMenu"> <a href="connexion.php"><ion-icon size="large" name="enter-outline"></ion-icon></a></li>
-        </ul>
-    </header>
-    <main>
-        <h1>Liste des écoles répertoriées</h1>
-        
-        <div class="flexible wrap space-around">
-            <div class="border card">
-                <h2 class="center">ITN</h2>
-                <div>
-                    <div class="flexible blocImageEcole"><img src="Images/itnIm.jpeg" alt="itn" /></div>
-                    <div class="center">
-                        <p><span>Rue de la pépinière 101</span> - <span>Namur</span></p>
-                        <h3>081729011</h3>
-                        <a href="voirEcole.php" class="btn btn-page">Voir l'école</a>
-                    </div>
-                </div>
-            </div>
-            <div class="border card">
-                <h2 class="center">Collège Saint Servais</h2>
-                <div>
-                    <div class="flexible blocImageEcole"><img src="Images/collegeSSIm.jpeg" alt="image lorem picsum" /></div>
-                    <div class="center">
-                        <p><span>Chau de Waterloo 52</span> - <span>Namur</span></p>
-                        <h3>0499689850</h3>
-                        <a href="voirEcole.php" class="btn btn-page">Voir l'école</a>
-                    </div>
-                </div>
-            </div>
-            <div class="border card">
-                <h2 class="center">Institut Saint Albert</h2>
-                <div>
-                    <div class="flexible blocImageEcole"><img src="Images/stAlbertIm.jpeg" alt="image lorem picsum" /></div>
-                    <div class="center">
-                        <p><span>Av Ferdinand Charlot 35</span> - <span>Jodoigne</span></p>
-                        <h3>010811250</h3>
-                        <a href="voirEcole.php" class="btn btn-page">Voir l'école</a>
-                    </div>
-                </div>
-            </div>
-            <div class="border card">
-                <h2 class="center">Ecole de l'enfant Jésus</h2>
-                <div>
-                    <div class="flexible blocImageEcole"><img src="Images/enfantJesusIm.png" alt="image lorem picsum" /></div>
-                    <div class="center">
-                        <p><span>Rue de Sotriamont 1</span> - <span>Nivelles</span></p>
-                        <h3>067893800</h3>
-                        <a href="voirEcole.php" class="btn btn-page">Voir l'école</a>
-                    </div>
-                </div>
-            </div>
+<div class="flex space-evenly wrap">
+<form method="post" action="">
+    <fieldset>
+        <legend>Ton profile</legend>
+        <div class="mb-3">
+            <label for="Prenom" class="form-label">Prénom</label>
+            <input type="text" placeholder="prenom" class="form-control" id="prenom" name="prenom" required <?php if (isset($_SESSION["user"])) : ?> value="<?= $_SESSION['user']->utilPrenom ?>"<?php endif ?>>
         </div>
-    </main>
-    <footer>
-        <div class="flexible space-between align-item-center">
-            <div>
-                <img class="imageIcon" src="Images/icon1.jpg" alt="image twitter">
-                <img class="imageIcon" src="Images/icon2.jpg" alt="image facebook">
-                <img class="imageIcon" src="Images/icon3.jpg" alt="image google">
-            </div>
+        <div class="mb-3">
+            <label for="Nom" class="form-label">Nom</label>
+            <input type="text" placeholder="nom" class="form-control" id="nom" name="nom" required <?php if (isset($_SESSION["user"])) : ?> value="<?= $_SESSION['user']->utilNom ?>"<?php endif ?>>
         </div>
-    </footer>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
+        <div class="mb-3">
+            <label for="date" class="form-label">Age</label>
+            <input type="number" placeholder="dateDeNaissance" class="form-control" id="date" name="dateDeNaissance" required <?php if (isset($_SESSION["user"])) : ?> value="<?= $_SESSION['user']->utilAge ?>"<?php endif ?>>
+        </div>
+        <div class="mb-3">
+            <label for="numero" class="form-label">Numéro de téléphone</label>
+            <input type="tel" placeholder="numero" class="form-control" id="num" name="numero" required <?php if (isset($_SESSION["user"])) : ?> value="<?= $_SESSION['user']->utilNum ?>"<?php endif ?>>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Adresse</label>
+            <input type="email" placeholder="email" class="email" id="adresse" name="email" required <?php if (isset($_SESSION["user"])) : ?> value="<?= $_SESSION['user']->utilAdresse ?>"<?php endif ?>>
+        </div>
+        <div class="mb-3">
+            <label for="codePostal" class="form-label">Code postale</label>
+            <input type="number" placeholder="codePostal" class="codePostal" id="adresse" name="codePostal" required <?php if (isset($_SESSION["user"])) : ?> value="<?= $_SESSION['user']->utilPostal ?>"<?php endif ?>>
+        </div>
+        <div>
+            <label for="mot_de_passe" class="form-label">mot de passe</label>
+            <input type="password" placeholder="mot_de_passe" class="mot_de_passe" id="mot_de_passe" name="mot_de_passe" required <?php if (isset($_SESSION["user"])) : ?> value="<?= $_SESSION['user']->utilMot ?>"<?php endif ?>>
+        </div>
+        <div>
+            <button name="btnEnvoi" class="btn btn-primary" value="Envoyer">Envoyer</button>
+        </div>
+    </fieldset>
+</form>
+</div>

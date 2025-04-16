@@ -1,5 +1,5 @@
 <?php
-require_once("Models/schoolModel.php");
+require_once("Models/userModel.php");
 $uri = $_SERVER["REQUEST_URI"];
 if ($uri === "/index.php" || $uri === "/") {
     $title = "Page d'accueil";

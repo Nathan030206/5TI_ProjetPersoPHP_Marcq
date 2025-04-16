@@ -34,7 +34,22 @@ elseif ($uri ==="/inscription"){
     require_once("Views/base.php");
 }
 
+elseif ($uri==="/profile"){
+    $title = "Affichage du profile";
+    $template = "Views/Users/profile.php";
+    require_once("Views/base.php");
+}
+
 elseif ($uri==="/updateProfil"){
+    if(isset($_POST['btnEnvoi'])){
+        $messageError = verifEmptyData();
+        if (!$messageError){
+            updateUser($pdo);
+            updateSession($pdo);
+            header('location:/profile');
+        }
+
+    }
     $title = "Mise à jour du profil";
     $template = "Views/Users/inscriptionOrEditProfil.php";
     require_once("Views/base.php");

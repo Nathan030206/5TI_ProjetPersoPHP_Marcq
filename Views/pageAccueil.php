@@ -7,7 +7,6 @@
         <div>
             <div class="flexible justify-content-center blocImagePc">
                 <img src="/Assets/Images/pc2.jpg" alt="">
-                <p></p>
             </div>
             <div class="center">
             </div>
@@ -16,7 +15,6 @@
         <div>
             <div class="flexible justify-content-center blocImagePc">
                 <img src="/Assets/Images/pc1.jpg" alt="">
-                <p></p>
             </div>
             <div class="center">
             </div>
@@ -25,7 +23,6 @@
         <div>
             <div class="flexible justify-content-center blocImagePc">
                 <img src="/Assets/Images/pc3.jpg" alt="">
-                <p></p>
             </div>
             <div class="center">
             </div>
