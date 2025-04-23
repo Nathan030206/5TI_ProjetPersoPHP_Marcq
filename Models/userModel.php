@@ -62,7 +62,7 @@ function updateUser($pdo)
 {
     try 
     {
-        $query = 'update utilisateur set utilPrenom = :utilPrenom, utilNom = :utilNom, utilAge = :utilAge, utilNum = :utilNum, utilAdresse = :utilAdresse, utilPostal = :utilPostal, utilMot = :utilMot where utilId =: utilId';
+        $query = 'update utilisateur set utilPrenom = :utilPrenom, utilNom = :utilNom, utilAge = :utilAge, utilNum = :utilNum, utilAdresse = :utilAdresse, utilPostal = :utilPostal, utilMot = :utilMot where utilId = :utilId';
         $ajouteUser = $pdo->prepare($query);
         $ajouteUser ->execute([
             'utilPrenom' => $_POST["prenom"],
@@ -85,7 +85,7 @@ function updateSession($pdo)
     try {
         $query = 'select * from utilisateur where utilId = :utilId';
         $selectUser = $pdo->prepare($query);
-        $selectUser->execute ([
+        $selectUser->execute([
             'utilId' => $_SESSION["user"]->utilId
         ]);
         $user = $selectUser->fetch();
@@ -96,6 +96,46 @@ function updateSession($pdo)
     }
 }
 
+function deleteContenirFromUser($dbh){
+    try {
+        $query = 'delete from contenir where comId in(select comId from machine where utilId = :utilId)';
+        $deleteContenirFromId = $dbh->prepare($query);
+        $deleteContenirFromId->execute ([
+            'utilId' => $_SESSION["user"]->utilId
+        ]);
+    } catch (PDOException $e) {
+        $message  = $e->getMessage();
+        die($message);
+    }
+}
+
+function deleteMachineFromUser($pdo)
+{
+    try {
+        $query = 'delete from machine where utilId = :utilId';
+        $deleteContenirFromId = $pdo->prepare($query);
+        $deleteContenirFromId->execute([
+            'utilId' => $_SESSION["user"]->utilId
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
+function DeleteUser ($pdo)
+{
+    try {
+    $query = 'delete from utilisateur where utilId = :utilId';
+    $delUser = $pdo->prepare($query);
+    $delUser->execute([
+        'utilId' => $_SESSION["user"]->utilId
+    ]);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
 
 
 ?>

@@ -34,25 +34,27 @@ elseif ($uri ==="/inscription"){
     require_once("Views/base.php");
 }
 
-elseif ($uri==="/profile"){
-    $title = "Affichage du profile";
-    $template = "Views/Users/profile.php";
-    require_once("Views/base.php");
-}
 
-elseif ($uri==="/updateProfil"){
+elseif ($uri==="/profile"){
     if(isset($_POST['btnEnvoi'])){
         $messageError = verifEmptyData();
         if (!$messageError){
             updateUser($pdo);
+            var_dump("coucou2");
             updateSession($pdo);
-            header('location:/profile');
+            
         }
-
     }
     $title = "Mise à jour du profil";
-    $template = "Views/Users/inscriptionOrEditProfil.php";
+    $template = "Views/Users/profile.php";
     require_once("Views/base.php");
+}
+
+elseif (isset($_POST['btnSupp'])) {
+    deleteContenirFromUser($pdo);
+    deleteMachineFromUser($pdo);
+    deleteUser($pdo);
+    header("location:/deconnexion"); 
 }
 
 elseif ($uri ==="/deconnexion") {
