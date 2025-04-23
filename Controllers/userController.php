@@ -45,17 +45,19 @@ elseif ($uri==="/profile"){
             
         }
     }
+    elseif (isset($_POST['btnSupp'])) {
+        deleteContenirFromUser($pdo);
+        deleteMachineFromUser($pdo);
+        DeleteUser($pdo);
+        header("location:/deconnexion"); 
+    }
+
     $title = "Mise à jour du profil";
     $template = "Views/Users/profile.php";
     require_once("Views/base.php");
 }
 
-elseif (isset($_POST['btnSupp'])) {
-    deleteContenirFromUser($pdo);
-    deleteMachineFromUser($pdo);
-    deleteUser($pdo);
-    header("location:/deconnexion"); 
-}
+
 
 elseif ($uri ==="/deconnexion") {
     session_destroy();
