@@ -29,4 +29,11 @@ function selectAllComposants($pdo){
     }
 }
 
+function createMachine($pdo)
+{
+    try {
+        $query = 'insert into machine (, '
+    }
+}
+
 ?>
