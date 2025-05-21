@@ -30,7 +30,7 @@
         <?php if ($uri === "/mesCreations") : ?>
             <h1>Vos créations</h1>
         <?php else :?>
-            <h1>Liste des créations réperetoriées</h1>
+            <h1>Liste des créations répertoriées</h1>
         <?php endif ?>
         <?php if (isset($SESSION["user"])) : ?>
             <a href="createPc">Ajouter une école</a>

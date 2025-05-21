@@ -32,7 +32,7 @@ function selectAllComposants($pdo){
 function createMachine($pdo)
 {
     try {
-        $query = 'insert into machine (, '
+        $query = 'insert into machine (macPrix, macComp, '
     }
 }
 
