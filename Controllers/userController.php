@@ -40,7 +40,6 @@ elseif ($uri==="/profile"){
         $messageError = verifEmptyData();
         if (!$messageError){
             updateUser($pdo);
-            var_dump("coucou2");
             updateSession($pdo);
             
         }

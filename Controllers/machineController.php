@@ -1,16 +1,30 @@
 <?php 
 
-require_once "Models/machineController.php";
+require_once "Models/pcModel.php";
 
 $uri = $_SERVER["REQUEST_URI"];
 
 if($uri === "/mesCreations"){
+    var_dump("Coucou");
     $machines = selectMyMachines($pdo);
     $title = "Mes machines";
-    $template = "Views/pageAccueil.php";
+    $template = "Views/Users/machines.php";
     require_once("Views/base.php");
 
 }
 else if ($uri === "/createMachine"){
-    
+    if (isset($_POST['btnEnvoi'])) {
+        createMachine($pdo);
+        $maclId = $pdo->lastInsertId();
+        for ($i = 0; $i < count($_POST["options"]); $i++) {
+            $catId = $_POST["options"][$i];
+            ajouterCategoriesMachine($pdo, $macId,$catId );
+        }
+        header("location:/mesMachines");
+
+    }
+    $options = selectAllComposants($pdo);
+    $title = "Créer une nouvelle machine";
+    $template = "Views/Users/creations.php";
+    require_once("Views/base.php");
 }

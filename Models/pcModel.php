@@ -2,7 +2,7 @@
 
 function selectMyMachines($pdo){
     try{
-        $query = 'select * from school where utilisateurId = : utilisateurId';
+        $query = 'select * from machine where utilId =:utilId';
         $selectMachine = $pdo->prepare($query);
         $selectMachine->execute([
 
@@ -32,8 +32,25 @@ function selectAllComposants($pdo){
 function createMachine($pdo)
 {
     try {
-        $query = 'insert into machine (macPrix, macComp, '
+        $query = 'insert into'
     }
 }
+
+function ajouterCategoriesMachine($pdo,$macId, $catId)
+{
+    try {
+        $query='insert into contenir (contId, compId, macId) values(:contId, :compId, macId)';
+        $deleteAllMachinesFromId = $pdo->prepare($query);
+        $deleteAllMachinesFromId->execute([
+            'macId' => $macId,
+            '$categorieComposantsId' => $catId
+        ]);
+    } catch (\PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
+
 
 ?>

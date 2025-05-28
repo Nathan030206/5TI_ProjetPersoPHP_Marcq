@@ -2,7 +2,7 @@
 
     <ul class="flexible space-evenly">
         <li class="menu"><a href="index.php">Home</a></li>
-        <li class="menu"><a href="mesCréations">Création</a></li>
+        <li class="menu"><a href="mesCreations">Création</a></li>
         <li class="menu"><a href="profile">Profile</a></li>
         <li class="menu"><a href="deconnexion">Déconnexion</a></li>
 
