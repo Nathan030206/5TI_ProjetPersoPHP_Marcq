@@ -29,10 +29,18 @@ function selectAllComposants($pdo){
     }
 }
 
+
 function createMachine($pdo)
 {
-    try {
-        $query = 'insert into'
+    try{
+        $query = 'insert into machine (utilId) values (:utilId)';
+        $addMachine = $pdo->prepare($query);
+        $addMachine->execute([
+            'utilId' => $_SESSION["user"]->utilId
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
     }
 }
 
