@@ -5,12 +5,10 @@ require_once "Models/pcModel.php";
 $uri = $_SERVER["REQUEST_URI"];
 
 if($uri === "/mesCreations"){
-    var_dump("Coucou");
     $machines = selectMyMachines($pdo);
     $title = "Mes machines";
     $template = "Views/Users/machines.php";
     require_once("Views/base.php");
-
 }
 else if ($uri === "/createMachine"){
     if (isset($_POST['btnEnvoi'])) {
@@ -25,6 +23,6 @@ else if ($uri === "/createMachine"){
     }
     $options = selectAllComposants($pdo);
     $title = "Créer une nouvelle machine";
-    $template = "Views/Users/creations.php";
+    $template = "Views/Users/creation.php";
     require_once("Views/base.php");
 }

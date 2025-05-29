@@ -18,7 +18,7 @@ function selectMyMachines($pdo){
 
 function selectAllComposants($pdo){
     try {
-        $query = 'SELECT * FROM compId';
+        $query = 'SELECT * from composants';
         $selectComposants = $pdo->prepare($query);
         $selectComposants->execute();
         $composants = $selectComposants->fetchAll();
