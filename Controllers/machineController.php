@@ -19,11 +19,10 @@ else if ($uri === "/createMachine"){
 
     }
     else if (isset($_POST['btn-cat'])) {
-         $composants = selectComposants($pdo);
+        $composants = selectComposants($pdo);
 
     }
-
-   
+    else if (isset($_POST['btn-comp']))
     $title = "Créer une nouvelle machine";
     $template = "Views/Users/creation.php";
     require_once("Views/base.php");

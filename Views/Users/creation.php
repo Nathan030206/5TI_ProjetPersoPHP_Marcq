@@ -22,7 +22,10 @@
                         <option value="<?= $composant->compId ?>"><?= $composant->compNom ?></option>
                     <?php endforeach ?>
                 </select>
-                <button name="btn-cat" value="btn-cat" id="btn-cat">Choisir</button>
+                <button name="btn-comp" value="btn-comp" id="btn-comp">Choisir</button>
+            </div>
+            <div>
+                <button name="btn-creer" value="btn-creer" id="btn-creer">Créer son pc</button>
             </div>
         </fieldset>
     </form>

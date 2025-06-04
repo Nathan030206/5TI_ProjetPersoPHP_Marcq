@@ -1,5 +1,9 @@
+<?php if ($uri === "/mesEcoles") :?>
+    <h1>Pages des créations</h1>
+<?php else :?>
+    <h1>Liste des écoles répertoriées</h1>
+<?php endif ?>
 
-<h1>Pages des créations</h1>
 
 <div class="flexible wrap space-around">
     <div class="border card">
@@ -30,11 +34,11 @@
         <?php if ($uri === "/mesCreations") : ?>
             <h1>Vos créations</h1>
         <?php else :?>
-            <h1>Liste des créations répertoriées</h1>
+            <h1>Liste de tes créations</h1>
         <?php endif ?>
-        <?php if (isset($SESSION["user"])) : ?>
-            <a href="createPc">Ajouter une école</a>
-        <?php endif ?>
+<?php if (isset($_SESSION["user"])) : ?>
+    <a href="createMachine">Ajouter une machine</a>
+<?php endif ?>
 
         <?php if ($uri === "/mesCreations") : ?>
             <p><a href="deleteMachine?macId=<?= $machine->macId ?>">Supprimer la machine</a></p>
