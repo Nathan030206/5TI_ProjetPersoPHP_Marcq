@@ -11,18 +11,22 @@ if($uri === "/mesCreations"){
     require_once("Views/base.php");
 }
 else if ($uri === "/createMachine"){
+    $categories = selectCategories($pdo);
     if (isset($_POST['btnEnvoi'])) {
         createMachine($pdo);
-        $maclId = $pdo->lastInsertId();
-        for ($i = 0; $i < count($_POST["options"]); $i++) {
-            $catId = $_POST["options"][$i];
-            ajouterCategoriesMachine($pdo, $macId,$catId );
-        }
+        $_SESSION["macId"] = $pdo->lastInsertId();
         header("location:/mesMachines");
 
     }
-    $options = selectAllComposants($pdo);
+    else if (isset($_POST['btn-cat'])) {
+         $composants = selectComposants($pdo);
+
+    }
+
+   
     $title = "Créer une nouvelle machine";
     $template = "Views/Users/creation.php";
     require_once("Views/base.php");
 }
+
+

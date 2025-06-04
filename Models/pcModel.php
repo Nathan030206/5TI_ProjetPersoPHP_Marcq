@@ -16,17 +16,34 @@ function selectMyMachines($pdo){
     }
 }
 
-function selectAllComposants($pdo){
+function selectComposants($pdo){
     try {
-        $query = 'SELECT * from composants';
+        $query = 'select * from composants where catId =:catId';
         $selectComposants = $pdo->prepare($query);
-        $selectComposants->execute();
+        $selectComposants->execute([
+            'catId' => $_POST["categorie"]
+        ]);
         $composants = $selectComposants->fetchAll();
         return $composants;
     } catch (PDOException $e) {
         $message = $e->getMessage();
         die($message);
     }
+}
+
+
+function selectCategories ($pdo) {
+    try {
+        $query = 'SELECT * from categories';
+        $selectCategories = $pdo->prepare($query);
+        $selectCategories->execute();
+        $categories = $selectCategories->fetchAll();
+        return $categories;
+    } catch (PDOException $e){
+        $message = $e->getMessage();
+        die($message);
+    }
+    
 }
 
 
@@ -44,6 +61,8 @@ function createMachine($pdo)
     }
 }
 
+
+
 function ajouterCategoriesMachine($pdo,$macId, $catId)
 {
     try {
@@ -58,6 +77,7 @@ function ajouterCategoriesMachine($pdo,$macId, $catId)
         die($message);
     }
 }
+
 
 
 

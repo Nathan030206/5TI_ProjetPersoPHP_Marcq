@@ -1,26 +1,29 @@
 <div class="space-evenly wrap">
     <form method="post" action="">
         <fieldset>
-            <legend>Inscription</legend>
+            <legend>Création</legend>
             <div class="mb-3">
-                <select catNom="categories" catId="categories-select">
+                <label for="categories-select" class="form-label">Catégories</label>
+                <select name="categorie" id="categories-select" class="form-select">
+                    <option value="">-- Choisir une catégorie --</option>
                     <?php foreach ($categories as $categorie) : ?>
-                        <label for="TypeDeComposants" class="form-label">Catégories</label>
                         <option value="<?= $categorie->catId ?>"><?= $categorie->catNom ?></option>
                     <?php endforeach ?>
+                    
                 </select>
-                <select compNom="categories" catId="categories-select">
-                    <label for="omposants" class="form-label">Composants</label>
-                    <?php foreach ($compsants as $compsant) : ?>
+                <button name="btn-cat" value="btn-cat" id="btn-cat">Choisir</button>
+            </div>
+            <div class="mb-3">
+                <label for="composants-select" class="form-label">Composants</label>
+                <select name="composant" id="composants-select" class="form-select">
+                    <option value="">-- Choisir un composant --</option>
+
+                    <?php  foreach ($composants as $composant) : ?>
                         <option value="<?= $composant->compId ?>"><?= $composant->compNom ?></option>
                     <?php endforeach ?>
                 </select>
+                <button name="btn-cat" value="btn-cat" id="btn-cat">Choisir</button>
             </div>
-            <div class="mb-3">
-                <label for="Nom" class="form-label">Nom</label>
-                <input type="text" placeholder="nom" class="form-control" id="nom" name="nom" required>
-            </div>
-
         </fieldset>
     </form>
 </div>
