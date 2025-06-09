@@ -1,6 +1,6 @@
 fieldset{
     border-radius: 20px;
-    background-color:rgb(147, 177, 166);
+    background-color:rgb(101, 0, 232);
 }
 
 .btn {
@@ -14,21 +14,21 @@ fieldset{
 }
 
 .btn-page {
-    background-color: rgb(92, 131, 116);
+    background-color: rgb(92, 1, 237);
     color: whitesmoke;
     border: 1px solid rgb(24, 61, 61);
 }
 Ò
 .btn-primary {
-    background-color: rgb(24, 61, 61);
+    background-color: rgb(68, 0, 225);
     color: whitesmoke;
     border: 1px solid white;
 }
 
 .btn-secondary {
-    background-color:rgb(92, 131, 116);
+    background-color:rgb(204, 0, 255);
     color: white;
-    border: 1px solid rgb(24, 61, 61);
+    border: 1px solid rgb(93, 0, 255);
     text-align: center;
 }
 
@@ -39,7 +39,7 @@ fieldset{
 }
 
 .btn-load {
-    background-color: rgb(44, 117, 10);
+    background-color: rgb(46, 0, 248);
     color: whitesmoke;
     border: 1px solid white;
 }
@@ -51,7 +51,7 @@ form label {
 
 form legend {
     font-size: 3em;
-    background-color: rgb(92, 131, 116);
+    background-color: rgb(115, 0, 255);
     color:rgb(4, 13, 18);
     padding: 5px;
     border-radius: 10px 25px;
