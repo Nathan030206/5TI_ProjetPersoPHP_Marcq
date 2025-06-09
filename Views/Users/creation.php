@@ -9,7 +9,7 @@
                     <?php foreach ($categories as $categorie) : ?>
                         <option value="<?= $categorie->catId ?>"><?= $categorie->catNom ?></option>
                     <?php endforeach ?>
-                    
+
                 </select>
                 <button name="btn-cat" value="btn-cat" id="btn-cat">Choisir</button>
             </div>
@@ -18,18 +18,15 @@
                 <select name="composant" id="composants-select" class="form-select">
                     <option value="">-- Choisir un composant --</option>
 
-                    <?php  foreach ($composants as $composant) : ?>
+                    <?php foreach ($composants as $composant) : ?>
                         <option value="<?= $composant->compId ?>"><?= $composant->compNom ?></option>
                     <?php endforeach ?>
                 </select>
-                <button name="btn-comp" value="btn-comp" id="btn-comp">Choisir</button>
+                <button type="submit" name="btn-comp" value="btn-comp" id="btn-comp">Choisir</button>
             </div>
             <div>
                 <button name="btn-creer" value="btn-creer" id="btn-creer">Créer son pc</button>
             </div>
-            <label for="compChoix" class="form-label">Composants Choix</label>
-            
-            
         </fieldset>
     </form>
 </div>
