@@ -31,7 +31,6 @@ function selectComposants($pdo){
     }
 }
 
-
 function selectCategories ($pdo) {
     try {
         $query = 'SELECT * from categories';
@@ -46,7 +45,6 @@ function selectCategories ($pdo) {
     
 }
 
-
 function createMachine($pdo)
 {
     try{
@@ -60,8 +58,6 @@ function createMachine($pdo)
         die($message);
     }
 }
-
-
 
 function ajouterCategoriesMachine($pdo,$macId, $catId)
 {

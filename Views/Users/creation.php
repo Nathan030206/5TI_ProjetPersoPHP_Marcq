@@ -27,6 +27,9 @@
             <div>
                 <button name="btn-creer" value="btn-creer" id="btn-creer">Créer son pc</button>
             </div>
+            <label for="compChoix" class="form-label">Composants Choix</label>
+            
+            
         </fieldset>
     </form>
 </div>

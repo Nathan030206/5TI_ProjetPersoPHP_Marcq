@@ -137,7 +137,4 @@ function DeleteUser ($pdo)
     }
 }
 
-
-
-
 ?>
